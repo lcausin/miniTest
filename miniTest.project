@@ -1,0 +1,73 @@
+<project project_version="1.8">
+    <project_settings>
+        <general>
+            <setting name="generalname" value="miniTest"/>
+            <setting name="generalgeneric" value="./Generic/"/>
+            <setting name="generalsource" value="./src/"/>
+            <setting name="generaltmp" value="./Cooking/"/>
+            <setting name="generalicon" value="Assets/shine_research.jpg"/>
+            <setting name="generalsplashscreen" value="Assets/shine_research.jpg"/>
+            <setting name="savedata_icon" value=""/>
+            <setting name="background_img" value=""/>
+            <setting name="generalmajor" value="0"/>
+            <setting name="generalminor" value="0"/>
+            <setting name="parentallevel" value="0"/>
+            <setting name="app_type" value="0"/>
+            <setting name="hdr" value="0"/>
+            <setting name="english" value="0"/>
+            <setting name="englishname" value=""/>
+            <setting name="french" value="0"/>
+            <setting name="frenchname" value=""/>
+            <setting name="spanish" value="0"/>
+            <setting name="spanishname" value=""/>
+            <setting name="german" value="0"/>
+            <setting name="germanname" value=""/>
+            <setting name="italian" value="0"/>
+            <setting name="italianname" value=""/>
+            <setting name="featurenetworking" value="0"/>
+            <setting name="featurerecording" value="0"/>
+            <setting name="featureinapppurchase" value="0"/>
+            <setting name="featurenotifications" value="0"/>
+            <setting name="featurevr" value="0"/>
+            <setting name="generallocalmultiplayer" value="0"/>
+            <setting name="generaluuid" value="c353bd10-9970-4c2f-ac7f-50e9125f4332"/>
+            <desktop>
+                <setting name="desktopwidth" value="0"/>
+                <setting name="desktopheight" value="0"/>
+                <windows/>
+                <linux/>
+                <mac/>
+            </desktop>
+            <console>
+                <setting name="console1080p" value="0"/>
+                <setting name="console720p" value="0"/>
+                <ps4>
+                    <setting name="user_management" value="0"/>
+                    <setting name="pronunciationsigfile" value=""/>
+                    <setting name="pronunciationxmlfile" value=""/>
+                    <setting name="youtubeclientid" value=""/>
+                </ps4>
+                <psvita>
+                    <setting name="savedataquota" value="0"/>
+                    <setting name="livearea" value=""/>
+                </psvita>
+                <xboxone>
+                    <setting name="packagingdirectory" value=""/>
+                    <setting name="mappingfile" value=""/>
+                </xboxone>
+            </console>
+            <mobile>
+                <setting name="mobilelandscape" value="0"/>
+                <setting name="mobileportrait" value="0"/>
+                <setting name="mobilefeaturefullscreen" value="0"/>
+                <android>
+                    <setting name="androidtargetsdkversion" value="0"/>
+                    <setting name="androidminsdkversion" value="0"/>
+                    <setting name="androidpublickey" value=""/>
+                </android>
+                <ios/>
+            </mobile>
+        </general>
+    </project_settings>
+    <extensions/>
+</project>

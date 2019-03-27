@@ -1,0 +1,30 @@
+<parameters>
+
+    <!-- Diffuse -->
+    <parameter type="bitmap" input_name="DiffuseColor" output_name="DiffuseMap" file_name="_nomap_white.tga"/>
+    <parameter type="color" input_name="Diffuse" output_name="DiffuseMapModulator" red="1.000000" green="1.000000" blue="1.000000" alpha="1.000000"/>
+
+    <!-- NormalMap -->
+    <parameter type="bitmap" input_name="NormalMap" output_name="NormalMap" file_name="_nomap_nrm.tga"/>
+
+    <!-- OpacityMap -->
+    <parameter type="bitmap" input_name="TransparentColor" output_name="OpacityMap" file_name="_nomap_white.tga"/>
+
+    <!-- Specular -->
+    <parameter type="bitmap" input_name="SpecularColor" output_name="SpecularMap" file_name="_nomap_black.tga"/>
+    <parameter type="color" input_name="Specular" output_name="SpecularMapModulator" red="1.000000" green="1.000000" blue="1.000000" alpha="1.000000"/>
+    <parameter type="float" input_name="SpecularFactor" output_name="SpecularLevel" value="1.000000"/>
+
+    <!-- Env -->
+    <parameter type="bitmap" input_name="ReflectionColor" output_name="EnvMap" file_name="_nomap_black.tga"/>
+    <parameter type="float" input_name="ReflectionFactor" output_name="EnvMapFactor" value="1.000000"/>
+    <parameter type="bitmap" input_name="ReflectionColorMask" output_name="EnvMapMask" file_name="_nomap_black.tga"/>
+
+    <!-- Shininess -->
+    <parameter type="float" input_name="Shininess" output_name="Shininess" value="30.000000"/>
+    
+    <!-- TexCoord -->
+    <parameter type="float" input_name="TexCoordOffsetU" output_name="TexCoordOffsetU" value="0.000000"/>
+    <parameter type="float" input_name="TexCoordOffsetV" output_name="TexCoordOffsetV" value="0.000000"/>
+    
+</parameters>
