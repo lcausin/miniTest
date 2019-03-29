@@ -37,9 +37,9 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules/")
 
 find_package(ShSDK REQUIRED StubUserSystem ShEntryPoint ${USE_MODULE})
 
-if(NOT SHINE_INTERNAL)
+if(NOT SHINE_INTERNAL AND (SH_PC OR SH_LINUX OR SH_MAC))
 	find_package(ShSDK_Editor REQUIRED)
-endif(NOT SHINE_INTERNAL)
+endif(NOT SHINE_INTERNAL AND (SH_PC OR SH_LINUX OR SH_MAC))
 
 # Include some cmake helpers
 include(cmake/Master.cmake)
