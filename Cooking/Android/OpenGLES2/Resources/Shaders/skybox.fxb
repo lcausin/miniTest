@@ -1,0 +1,77 @@
+<!--- // skybox.glfx -->
+<glfx>
+
+<include name="lib/platform.glfxh" />
+<include name="lib/lighting.glfxh" />
+
+<texture name="skyTextureMap" />
+<sampler name="skyTextureMapSampler" type="sampler2D">
+	<texture>skyTextureMap</texture>
+	<min>LINEAR</min><mag>LINEAR</mag><mip>POINT</mip>
+	<wrapu>CLAMP</wrapu><wrapv>CLAMP</wrapv>
+</sampler>
+
+<input name="VS_INPUT">
+	<field name="POSITION" lname="position" type="vec4" prec="highp" />
+	<field name="TEXCOORD0" lname="texcoord" type="vec2" prec="mediump" />
+</input>
+
+<output name="VS_OUTPUT">
+	<field name="POSITION" lname="position" type="vec4" prec="highp" />
+	<field name="TEXCOORD0" lname="texcoord" type="vec2" prec="mediump" />
+</output>
+
+<code><![CDATA[
+
+	//--------------------------------------------------------------------------------------------------
+	// Defines
+	//--------------------------------------------------------------------------------------------------
+	#define 			MAX_DIRECTIONAL_LIGHT_PER_PASS  1
+	#define 			MAX_POINT_LIGHT_PER_PASS        48
+	#define 			MAX_SPECIALIZED_LIGHT_PASS      8
+
+	//--------------------------------------------------------------------------------------------------
+	// Automatic Parameters
+	//--------------------------------------------------------------------------------------------------
+	uniform float4x4 	mWorldViewProjection;
+	uniform float4x4 	mProjection;
+	uniform float4x4 	mView;
+	uniform float3		vCameraPosition;
+	//uniform int 		iPointLightCount;
+
+	//--------------------------------------------------------------------------------------------------
+	// Vertex shader code
+	//--------------------------------------------------------------------------------------------------
+	VS_OUTPUT VertexShaderFunction(VS_INPUT vInput)
+	{
+		VS_OUTPUT Out;
+
+		// Rotate into view-space, centered on the camera
+		float3 positionVS = mul(vInput.position.xyz, mat3(mView));
+
+		// Transform to clip-space
+		Out.position = mul(vec4(positionVS, 1.0f), mProjection);
+		Out.position.z = Out.position.w;
+		Out.texcoord = vInput.texcoord;
+	
+		return Out;
+	}
+
+	//--------------------------------------------------------------------------------------------------
+	// Pixel shader code
+	//--------------------------------------------------------------------------------------------------
+	float4 PixelShaderFunction(VS_OUTPUT vInput)
+	{
+		//
+		// We get the right texel from the skybox texture cube
+		return tex2D(skyTextureMapSampler, vInput.texcoord);
+	}
+
+]]></code>
+
+<tech name="DefaultTechnique">
+	<vs name="VertexShaderFunction" input="VS_INPUT" output="VS_OUTPUT" />
+	<ps name="PixelShaderFunction" />
+</tech>
+
+</glfx>
