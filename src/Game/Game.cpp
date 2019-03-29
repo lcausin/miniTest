@@ -1,5 +1,26 @@
 #include "Game.h"
 
+ShUser * g_pUser		= shNULL;
+
+float g_fGlobalTime = 0.0f;
+float g_fCameraSpeed = 20.0f;	// 10.0f -> normal | 100.0f -> High speed
+float fTime = 0.0f;
+
+
+/**
+ * Called to initialize DisplayProperties
+ */
+void ShEntryPoint::SetupDisplayProperties(bool & bLandscape, bool & bEnable3D, bool & bEnableZ, bool & bUseSpecular, bool & bUsePointLights, bool & bUseShadow, int & width, int & height)
+{
+	bLandscape		= false;
+	bEnable3D		= true;
+	bEnableZ		= true;
+	bUseSpecular	= false;
+	bUsePointLights	= true;
+	bUseShadow		= true;
+	width			= 1280;
+	height			= 720;
+}
 /**
  * Called before engine initialization
  */
