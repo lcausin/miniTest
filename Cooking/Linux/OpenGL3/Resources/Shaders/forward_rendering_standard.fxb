@@ -1,0 +1,66 @@
+<!--- // forward_rendering_standard.glfx -->
+<glfx>
+
+<include name="lib/platform.glfxh"/>
+
+<texture name="DiffuseMap"/>
+
+<sampler name="DiffuseMapSampler" type="sampler2D">
+	<texture>DiffuseMap</texture>
+	<min>LINEAR</min><mag>LINEAR</mag><mip>NONE</mip>
+	<wrapu>REPEAT</wrapu><wrapv>REPEAT</wrapv>
+</sampler>
+
+<input name="VS_INPUT">
+	<field name="POSITION" lname="position" type="vec4" />
+	<field name="TEXCOORD0" lname="texcoord" type="vec2" />
+</input>
+
+<output name="VS_OUTPUT">
+	<field name="POSITION" lname="position" type="vec4" prec="highp" />
+	<field name="TEXCOORD0" lname="texcoord" type="vec2" prec="mediump" />
+</output>
+
+<code><![CDATA[
+
+//--------------------------------------------------------------------------------------------------
+// forward_rendering_standard.glfx
+//--------------------------------------------------------------------------------------------------
+
+//The camera world view projection matrix
+uniform highp mat4 			mWorldViewProjection;
+
+//--------------------------------------------------------------------------------------------------
+// Vertex shader code
+//--------------------------------------------------------------------------------------------------
+VS_OUTPUT VertexShaderFunction(VS_INPUT vInput)
+{
+	//
+	// Output structure declaration
+	VS_OUTPUT Out;
+
+	//
+	// Texture coords
+	Out.texcoord = vInput.texcoord;
+	
+	// Position is computed from the vertex position multiplied with the view projection matrix
+	Out.position = mul(vInput.position, mWorldViewProjection);
+
+	return(Out);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Pixel shader code
+//--------------------------------------------------------------------------------------------------
+lowp vec4 PixelShaderFunction(VS_OUTPUT vInput)
+{
+	//Return computed texel color
+	lowp vec4 textureColor = tex2D(DiffuseMapSampler, vInput.texcoord);
+	return textureColor;
+}
+
+]]></code>
+
+<tech name="DefaultTechnique"><vs name="VertexShaderFunction" input="VS_INPUT" output="VS_OUTPUT" /><ps name="PixelShaderFunction" /></tech>
+
+</glfx>
