@@ -40,8 +40,6 @@ if(NOT SHINE_ROOT_DIR)
 	message(FATAL_ERROR "Could not locate root directory for ShineExternal")
 endif(NOT SHINE_ROOT_DIR)
 
-set(CMAKE_PREFIX_PATH "${SHINE_ROOT_DIR}") # needed for android !!!
-
 find_path(SHSDK_INCLUDE_DIR "ShSDK/ShSDK.h" HINTS "${SHINE_ROOT_DIR}" PATH_SUFFIXES "include" NO_CMAKE_FIND_ROOT_PATH)
 
 macro(FIND_SHSDK_LIBRARY _var)
@@ -81,6 +79,7 @@ if (${ShEntryPoint_INDEX} GREATER -1)
 	FIND_SHSDK_LIBRARY(STUBUSERSYSTEM_LIBRARY StubUserSystem)
 	set(SHSDK_LIBRARIES  ${SHSDK_LIBRARIES} "${STUBUSERSYSTEM_LIBRARY}")
 endif()
+
 
 FIND_SHSDK_LIBRARY(SHSDK_LIBRARY ShSDK)
 
