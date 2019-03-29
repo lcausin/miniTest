@@ -27,5 +27,5 @@ else(WIN32)
 endif(WIN32)
 
 set_property(TARGET Extension PROPERTY PREFIX )
-
+message("SHINE_EDITOR_EXT_DIR = ${SHINE_EDITOR_EXT_DIR}\n")
 file(COPY "Extension.configext" DESTINATION "${SHINE_EDITOR_EXT_DIR}")
