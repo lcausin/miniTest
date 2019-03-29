@@ -42,6 +42,7 @@ endif(NOT SHINE_ROOT_DIR)
 
 # ------------------------------------------------------------------------------------------------
 
+message("SHINE_ROOT_DIR : ${SHINE_ROOT_DIR}")
 find_library(SHCORE_EDITOR_LIBRARY NAMES ShCore_Editor HINTS ${SHINE_ROOT_DIR})
 find_library(SHSDK_EDITOR_LIBRARY NAMES ShSDK_Editor HINTS ${SHINE_ROOT_DIR})
 find_library(SHCOMPILER_EDITOR_LIBRARY NAMES ShCompiler_Editor HINTS ${SHINE_ROOT_DIR})
